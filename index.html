@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Loan Utilization Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Daily Loan Utilization Calculator - India</h1>
+            <p>Calculate your daily loan payments, interest, and remaining balance in Indian Rupees</p>
+        </header>
+
+        <main>
+            <div class="calculator-form">
+                <h2>Loan Information</h2>
+                <form id="loanForm">
+                    <div class="input-group">
+                        <label for="loanAmount">Loan Amount (₹)</label>
+                        <input type="number" id="loanAmount" name="loanAmount" placeholder="e.g., 2500000" step="1" min="0" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="interestRate">Annual Interest Rate (%)</label>
+                        <input type="number" id="interestRate" name="interestRate" placeholder="e.g., 8.5" step="0.1" min="0" max="25" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="loanTerm">Loan Term (Years)</label>
+                        <input type="number" id="loanTerm" name="loanTerm" placeholder="e.g., 20" step="1" min="1" max="30" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="startDate">Loan Start Date</label>
+                        <input type="date" id="startDate" name="startDate" required>
+                    </div>
+
+                    <button type="submit" class="calculate-btn">Calculate Daily Utilization</button>
+                </form>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2>Daily Loan Breakdown</h2>
+                
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Monthly Payment</h3>
+                        <div class="amount" id="monthlyPayment">₹0</div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Daily Payment</h3>
+                        <div class="amount" id="dailyPayment">₹0</div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Daily Interest</h3>
+                        <div class="amount" id="dailyInterest">₹0</div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Daily Principal</h3>
+                        <div class="amount" id="dailyPrincipal">₹0</div>
+                    </div>
+                </div>
+
+                <div class="utilization-details">
+                    <h3>Current Loan Status</h3>
+                    <div class="status-grid">
+                        <div class="status-item">
+                            <span class="label">Days Since Start:</span>
+                            <span class="value" id="daysSinceStart">0</span>
+                        </div>
+                        
+                        <div class="status-item">
+                            <span class="label">Current Balance:</span>
+                            <span class="value" id="currentBalance">₹0</span>
+                        </div>
+                        
+                        <div class="status-item">
+                            <span class="label">Principal Paid:</span>
+                            <span class="value" id="principalPaid">₹0</span>
+                        </div>
+                        
+                        <div class="status-item">
+                            <span class="label">Interest Paid:</span>
+                            <span class="value" id="interestPaid">₹0</span>
+                        </div>
+                        
+                        <div class="status-item">
+                            <span class="label">Total Paid:</span>
+                            <span class="value" id="totalPaid">₹0</span>
+                        </div>
+                        
+                        <div class="status-item">
+                            <span class="label">Remaining Days:</span>
+                            <span class="value" id="remainingDays">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-section">
+                    <h3>Loan Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="progressPercentage">0%</span> Complete
+                    </div>
+                </div>
+
+                <div class="daily-breakdown">
+                    <h3>Today's Breakdown</h3>
+                    <div class="breakdown-chart">
+                        <div class="chart-item interest">
+                            <div class="chart-bar" id="interestBar"></div>
+                            <span class="chart-label">Interest</span>
+                        </div>
+                        <div class="chart-item principal">
+                            <div class="chart-bar" id="principalBar"></div>
+                            <span class="chart-label">Principal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="error-message" id="errorMessage" style="display: none;"></div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Daily Loan Utilization Calculator. All calculations are estimates.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
